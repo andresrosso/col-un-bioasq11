@@ -1,4 +1,5 @@
 import json
+import copy
 import itertools
 import logging
 from tqdm import tqdm
@@ -24,30 +25,22 @@ def save_json(data, path):
     with open(path, 'w') as file:
         json.dump(data, file)
 
-def load_questions(path=TrainingSetPath.TASK9B.value):
-    return load_json(path)['questions']
- 
 def extract_pubmed_id(url):
     return url.split("pubmed/")[1]
 
 def extract_document_ids(question, format_values=True):
     return [
-        f"d{extract_pubmed_id(document)}" if format_values
+        extract_pubmed_id(document) if format_values
         else extract_pubmed_id(document)
         for document in question['documents']
     ]
 
 def extract_all_document_ids(questions):
-    return list(itertools.chain.from_iterable([
+    return list(set(list(itertools.chain.from_iterable([
         extract_document_ids(question) for question in tqdm(
-            questions, desc="Document id extraction: "
+            questions['questions'], desc="Document id extraction: "
         )
-    ]))
-
-def extract_formatted_question_id(question):
-    question_id = question["id"]
-    formatted_question_id = f"q{question_id}"
-    return formatted_question_id
+    ]))))
 
 def ask_single_doc_id(doc_id='1', fields=SearchFields.DEFAULT.value, es_client=ElasticServer.DEFAULT.value, index=SearchIndex.COMPLETE.value):
     unformatted_doc_id = doc_id.replace('d', '')
@@ -60,7 +53,7 @@ def ask_single_doc_id(doc_id='1', fields=SearchFields.DEFAULT.value, es_client=E
     except Exception as e:
         logger.info("Failed document: %s", doc_id)
         return {
-            doc_id: 'failed'
+            doc_id: {}
         }
     if sorted(fields) == ['abstract', 'mesh_terms', 'title']:
         formatted_answer = {
@@ -92,56 +85,33 @@ def ask_all_doc_id(doc_ids=['1'], fields=SearchFields.DEFAULT.value, es_client=E
 
     return doc_answers
 
-# Does not work from jupyterhub
-def ask_all_doc_id_parallel(doc_ids=['1'], fields=SearchFields.DEFAULT.value, es_client=ElasticServer.DEFAULT.value, index=SearchIndex.COMPLETE.value, n_jobs=5):
-    doc_answers = {}
-
-    doc_responses = Parallel(n_jobs=n_jobs)(
-        delayed(ask_single_doc_id)(
-            doc_id=doc_id,
-            fields=fields,
-            es_client=es_client,
-            index=index
-        )
-        for doc_id in doc_ids
-    )
-
-    for doc_response in doc_responses:
-        doc_id = list(doc_response.keys())[0]
-        doc_answer = doc_response[doc_id]
-        doc_answers[doc_id] = doc_answer
-
-    return doc_answers 
-
 def make_single_gold_standard(question):
-    formatted_question_id = extract_formatted_question_id(
-        question
-    )
-    document_ids = extract_document_ids(question)
     gold_standard = {
-        formatted_question_id: {
-            'question': question['body'],
-            'documents': {
-                    document_id: 1
-                    for document_id in document_ids
-            }
-        }
+        k: v for k,v in question.items() if k != 'documents'
     }
+    document_ids = extract_document_ids(question)
+    gold_standard['documents'] = document_ids
+
     return gold_standard
 
 def make_gold_standard(questions):
-    return [
+    return {'questions': [
         make_single_gold_standard(question)
-        for question in tqdm(questions, desc='Making base gold standard')
-    ]
+        for question in tqdm(questions['questions'], desc='Making base gold standard')
+    ]}
 
 def add_doc_info_to_gold_standard(gold_standard, docs_info):
-    for question in tqdm(gold_standard, desc='Adding doc info to gold standard'):
-        question_id = list(question.keys())[0]
-        for document in question[question_id]['documents'].keys():
-            question[question_id]['documents'][document] = \
-                docs_info.get(document, 'failed')
-
+    for question in tqdm(
+        gold_standard['questions'],
+        desc='Adding doc info to gold standard'
+    ):
+        documents_data = []
+        for document in question['documents']:
+            document_data = copy.deepcopy(docs_info.get(document, {}))
+            document_data['id'] = document
+            documents_data.append(document_data)
+        question['documents'] = documents_data
+            
 
 def ask_single_question(question='', fields=SearchFields.DEFAULT.value, size=10, es_client=ElasticServer.DEFAULT.value, index=SearchIndex.COMPLETE.value):
     str_question = \
@@ -180,8 +150,9 @@ def mesh_terms_to_list(mesh_terms):
 
 def extract_title_abstract_mesh_terms(answers):
     answers_hits = answers['hits']['hits']
-    answer_title_abstract = {
-        f"d{answer['_source']['pmid']}": {
+    answer_title_abstract = [
+        {
+            'id': answer['_source']['pmid'],
             'score': answer['_score'] / 100,
             'title': answer['_source']['title'],
             'abstract': answer['_source']['abstract'],
@@ -190,7 +161,7 @@ def extract_title_abstract_mesh_terms(answers):
             )
         }
         for answer in answers_hits
-    }
+    ]
     return answer_title_abstract
 
 def get_single_question_metrics(question='', fields=SearchFields.DEFAULT.value, size=10, es_client=ElasticServer.DEFAULT.value, index=SearchIndex.COMPLETE.value):
@@ -201,30 +172,12 @@ def get_single_question_metrics(question='', fields=SearchFields.DEFAULT.value, 
         es_client,
         index
     )
-    if isinstance(question, str):
-        return {
-            'documents': extract_title_abstract_mesh_terms(
-                raw_answer
-            )
-        }
 
-    question_id = extract_formatted_question_id(
-        question
-    )
     # TODO other cases
     if sorted(fields) == ['abstract', 'mesh_terms', 'title']:
-
-        single_question_metrics = {
-            question_id: {
-                'question': question['body'],
-                'documents': extract_title_abstract_mesh_terms(
-                    raw_answer
-                )
-            }
-        }
-        
-        
-    return single_question_metrics 
+        return extract_title_abstract_mesh_terms(
+            raw_answer
+        )
 
 def ask_several_questions(questions=[], fields=SearchFields.DEFAULT.value, size=10, es_client=ElasticServer.DEFAULT.value, index=SearchIndex.COMPLETE.value):
     metric_answers = []
@@ -236,5 +189,8 @@ def ask_several_questions(questions=[], fields=SearchFields.DEFAULT.value, size=
             es_client,
             index
         )
-        metric_answers.append(question_metrics)
-    return metric_answers
+        answered_question = copy.deepcopy(question)
+        answered_question['documents'] = question_metrics
+        metric_answers.append(answered_question)
+
+    return {'questions': metric_answers}
