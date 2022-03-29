@@ -12,5 +12,4 @@ class SearchFields(Enum):
     DEFAULT = ['title', 'abstract', 'mesh_terms']  # Only functional
 
 class SearchIndex(Enum):
-    INCOMPLETE = 'pubmed2022_index'
-    COMPLETE = 'pubmed2022_index_full'
+    COMPLETE = 'pubmed2022'
