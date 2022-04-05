@@ -108,7 +108,7 @@ def add_doc_info_to_gold_standard(gold_standard, docs_info):
         documents_data = []
         for document in question['documents']:
             document_data = copy.deepcopy(docs_info.get(document, {}))
-            if not all(document.values()):
+            if not bool(document_data):  # Empty dict meaning there is no document info
                 continue
             else:
                 document_data['id'] = document
