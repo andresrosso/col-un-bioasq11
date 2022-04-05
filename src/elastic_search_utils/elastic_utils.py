@@ -108,10 +108,12 @@ def add_doc_info_to_gold_standard(gold_standard, docs_info):
         documents_data = []
         for document in question['documents']:
             document_data = copy.deepcopy(docs_info.get(document, {}))
-            document_data['id'] = document
-            documents_data.append(document_data)
+            if not all(document.values()):
+                continue
+            else:
+                document_data['id'] = document
+                documents_data.append(document_data)
         question['documents'] = documents_data
-            
 
 def ask_single_question(question='', fields=SearchFields.DEFAULT.value, size=10, es_client=ElasticServer.DEFAULT.value, index=SearchIndex.COMPLETE.value):
     str_question = \
