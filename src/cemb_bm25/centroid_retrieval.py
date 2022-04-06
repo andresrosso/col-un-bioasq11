@@ -1,5 +1,6 @@
 import re
 import copy
+import itertools
 
 import gensim
 from gensim.models import Word2Vec
@@ -212,11 +213,16 @@ def update_question_scores(raw_questions, question_scores):
     for question in tqdm(raw_questions, desc='Updating dictionary with centroid scores'):
         for document in question['documents']:
             document['score'] = question_scores[question['id']][document['id']]
+            if 'documents_origin' in question.keys():
+                document['origin'] = question['documents_origin'][document['id']]
         question['documents'] = sorted(
             question['documents'],
-            key= lambda x: x['score'],
+            key= lambda x: x['score'] + 
+                (10.0 if x.get('origin', 'queried') == 'original' else 0.0),
             reverse=True
         )
+        question.pop('documents_origin', None)
+
 
 def update_question_scores_from_raw_data(raw_questions, question_scores):
     for question in tqdm(raw_questions, desc='Updating dictionary with centroid scores'):
@@ -224,17 +230,20 @@ def update_question_scores_from_raw_data(raw_questions, question_scores):
         for document in question['documents']:
             if document['id'] in question_scores[question['id']].keys():
                 document['score'] = question_scores[question['id']][document['id']]
+                if 'documents_origin' in question.keys():
+                    document['origin'] = question['documents_origin'][document['id']]
                 useful_documents.append(
                     document
                 )
         useful_documents = sorted(
             useful_documents,
-            key= lambda x: x['score'],
+            key= lambda x: x['score'] + 
+                (10.0 if x.get('origin', 'queried') == 'original' else 0.0),
             reverse=True
         )
-        
         question['documents'] = useful_documents
-        
+        question.pop('documents_origin', None)
+
 def load_bio_w2vec_model(path):
     return Word2Vec.load(path)
 
@@ -253,3 +262,44 @@ def calculate_centroids_test(text_tokens, model):  # FIXME repeated code of calc
         cent = np.mean(num,axis=0)
         centroids[sent_id] = cent
     return(centroids)
+
+# MERGE METHODS
+
+def merge_origins(original_questions, queried_questions):
+    failed = 0
+    merged_questions = copy.deepcopy(original_questions)
+    for question_index, original_question in tqdm(enumerate(merged_questions), desc='merging dictionaries'):
+        queried_question = queried_questions[question_index]
+        
+        original_documents = \
+            copy.deepcopy(original_question['documents'])
+        original_document_ids = set([
+            original_document['id']
+            for original_document in original_documents
+        ])
+        non_repeating_queried_documents = [
+            copy.deepcopy(document)
+            for document in queried_question['documents']
+            if document['id'] not in original_document_ids
+        ]
+        non_repeating_queried_documents_ids = [
+            document['id'] for document
+            in non_repeating_queried_documents
+        ]
+
+        merged_documents = list(itertools.chain(
+            original_documents,
+            non_repeating_queried_documents
+        ))
+        original_question['documents'] = merged_documents
+        
+        document_origin_map = {
+            doc_id: 'original' for doc_id in original_document_ids
+        }
+        
+        for doc_id in non_repeating_queried_documents_ids:
+            document_origin_map[doc_id] = 'queried'
+
+        original_question['documents_origin'] = document_origin_map
+        
+    return {'questions': merged_questions}
