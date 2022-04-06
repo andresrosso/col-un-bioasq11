@@ -2,6 +2,8 @@ import re
 import copy
 
 import gensim
+from gensim.models import Word2Vec
+
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
@@ -136,6 +138,8 @@ def calculate_centroids(text_tokens, model, vocab):
         centroids[sent_id] = cent
     return(centroids)
 
+
+
 def calculate_cosine_similarity(question_centroid, document_centroid):
     projection = np.dot(question_centroid, document_centroid)
     normalization = np.linalg.norm(question_centroid) * np.linalg.norm(document_centroid)
@@ -230,3 +234,22 @@ def update_question_scores_from_raw_data(raw_questions, question_scores):
         )
         
         question['documents'] = useful_documents
+        
+def load_bio_w2vec_model(path):
+    return Word2Vec.load(path)
+
+def calculate_centroids_test(text_tokens, model):  # FIXME repeated code of calculate_centroids but no vocab
+    num = 0
+    centroids = {}
+    for sent_id, sent in tqdm(text_tokens.items(), desc='Extracting centroids'):
+        num = []
+        for tok in sent:
+            try:
+                wij = model.wv[tok] #wij = vector de dimension 200 (wij vec)
+                num +=[wij] # num = create 200xn matrix, where n is the number of tokens in text
+            except: 
+                wij = np.zeros(200)
+                num+=[wij]
+        cent = np.mean(num,axis=0)
+        centroids[sent_id] = cent
+    return(centroids)
