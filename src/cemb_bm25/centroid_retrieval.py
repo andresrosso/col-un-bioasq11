@@ -31,15 +31,17 @@ def tokenize(text):
 def extract_entities(text):
     data = []
     standardized_text = standardize_text(text)
+    entities = []
     for sentence in sent_tokenize(standardized_text):
         cleaned_sentence = clean_sentence(sentence)
-        raw_entities = ENTITY_EXTRACTOR(cleaned_sentence)
+        raw_entities = ENTITY_EXTRACTOR(cleaned_sentence).ents
         sentence_entities = list(
             itertools.chain.from_iterable([
                 entity.text.split() for entity in raw_entities
             ])
         )
-    return sentence_entities
+        entities.extend(sentence_entities)
+    return entities
 
 def tokenize_document(document_info):
     return {
@@ -75,9 +77,9 @@ def extract_unique_doc_info(questions):
                 unique_docs[document_id] = document
     return unique_docs
 
-def docs_to_tokens(unique_docs, n_jobs=5):
+def docs_to_tokens(unique_docs, n_jobs=5, verbose=10):
     doc_ids = list(unique_docs.keys())
-    doc_tokens = Parallel(n_jobs=n_jobs)(
+    doc_tokens = Parallel(n_jobs=n_jobs, verbose=verbose)(
         delayed(tokenize_document)(doc_info)
         for doc_info in unique_docs.values()
     )
@@ -86,9 +88,9 @@ def docs_to_tokens(unique_docs, n_jobs=5):
 
     return docs_tokens
 
-def docs_to_entities(unique_docs, n_jobs=5):
+def docs_to_entities(unique_docs, n_jobs=5, verbose=10):
     doc_ids = list(unique_docs.keys())
-    doc_entities = Parallel(n_jobs=n_jobs)(
+    doc_entities = Parallel(n_jobs=n_jobs, verbose=verbose)(
         delayed(extract_document_entities)(doc_info)
         for doc_info in unique_docs.values()
     )
