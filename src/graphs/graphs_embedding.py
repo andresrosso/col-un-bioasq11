@@ -172,7 +172,7 @@ def make_all_question_graphs(questions, score_threshold, similarity_relevance, s
             models,
             saving_path
         )
-        documents_metadata.extend(documents_metadata)
+        documents_metadata.extend(question_metadata)
     df_documents_metadata = pd.DataFrame(documents_metadata)
     metadata_path = f'{saving_path}/metadata.parquet'
     df_documents_metadata.to_parquet(metadata_path, index=False)
