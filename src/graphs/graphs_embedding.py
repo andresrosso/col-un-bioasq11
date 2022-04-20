@@ -8,6 +8,8 @@ import scipy.spatial as sp
 
 from src.elastic_search_utils.elastic_utils import save_json
 
+FAILED_FLAG = 'Failed'
+
 def extract_embeddings(texts_x, model_x):
     embeds = []
     for sent in texts_x:
@@ -55,16 +57,19 @@ def extract_document_origins(question):
 def extract_document_edges(question, max_entities, similarity_relevance):
     document_edges = []
     for document in question['documents']:
-        document_embeddings = document['entities']
-        entity_similarity = 1 - sp.distance.cdist(
-            document_embeddings, document_embeddings, 'cosine'
-        )
-        entity_similarity = np.nan_to_num(entity_similarity)  # FIXME
-        cropped_matr = entity_similarity[:int(max_entities),:int(max_entities)]
-        padding_rows = [0,int(int(max_entities)-cropped_matr.shape[0])]
-        padding_cols = [0,int(int(max_entities)-cropped_matr.shape[1])]
-        padded_similarity = np.pad(cropped_matr,[padding_rows, padding_cols], mode='constant')
-        relevant_edges = [val.tolist() for val in np.where(padded_similarity <= similarity_relevance)]
+        try:  # FIXME
+            document_embeddings = document['entities']
+            entity_similarity = 1 - sp.distance.cdist(
+                document_embeddings, document_embeddings, 'cosine'
+            )
+            entity_similarity = np.nan_to_num(entity_similarity)  # FIXME
+            cropped_matr = entity_similarity[:int(max_entities),:int(max_entities)]
+            padding_rows = [0,int(int(max_entities)-cropped_matr.shape[0])]
+            padding_cols = [0,int(int(max_entities)-cropped_matr.shape[1])]
+            padded_similarity = np.pad(cropped_matr,[padding_rows, padding_cols], mode='constant')
+            relevant_edges = [val.tolist() for val in np.where(padded_similarity <= similarity_relevance)]
+        except:
+            relevant_edges = FAILED_FLAG
         document_edges.append(relevant_edges)
     return document_edges
 
@@ -72,18 +77,22 @@ def extract_document_similarities(question, similarity_shape):
     document_similarities = []
     question_embeddings = question['body']
     for document in question['documents']:
-        document_embeddings = document['entities']
-        question_document_similarity = 1 - sp.distance.cdist(
-            document_embeddings, question_embeddings, 'cosine'
-        )
-        question_document_similarity = np.nan_to_num(question_document_similarity)
-        cropped_matr = question_document_similarity[
-            :int(similarity_shape[0]),:int(similarity_shape[1])
-        ]
-        padding_rows = [0,int(int(similarity_shape[0])-cropped_matr.shape[0])]
-        padding_cols = [0,int(int(similarity_shape[1])-cropped_matr.shape[1])]
-        padded_similarity = np.pad(cropped_matr,[padding_rows, padding_cols], mode='constant')
-        document_similarities.append(padded_similarity.tolist())
+        try:
+            document_embeddings = document['entities']
+            question_document_similarity = 1 - sp.distance.cdist(
+                document_embeddings, question_embeddings, 'cosine'
+            )
+            question_document_similarity = np.nan_to_num(question_document_similarity)
+            cropped_matr = question_document_similarity[
+                :int(similarity_shape[0]),:int(similarity_shape[1])
+            ]
+            padding_rows = [0,int(int(similarity_shape[0])-cropped_matr.shape[0])]
+            padding_cols = [0,int(int(similarity_shape[1])-cropped_matr.shape[1])]
+            padded_similarity = np.pad(cropped_matr,[padding_rows, padding_cols], mode='constant')
+            padded_similarity = padded_similarity.tolist()
+        except:
+            padded_similarity = FAILED_FLAG
+        document_similarities.append(padded_similarity)
         
     return document_similarities
 
@@ -104,24 +113,31 @@ def write_question_graphs(question_id, question_graph, saving_path):
     documents_metadata = []
     for document_number, document_id \
         in enumerate(question_graph['document_ids']):
-        base_document_info = {
-            'question_id': question_id,
-            'document_id': document_id,
-            'label': question_graph['labels'][document_number],
-            'score': question_graph['scores'][document_number],
-            'origin': question_graph['origins'][document_number]
-        }
-        documents_metadata.append(
-            base_document_info
-        )
         
-        document_data = copy.deepcopy(base_document_info)
-        document_data.update({
-            'similarity_matrix': question_graph['similarity_matrices'][document_number],
-            'edges': question_graph['edges'][document_number],
-        })
-        document_saving_path = f'{saving_path}/{question_id}_{document_id}.json'
-        save_json(document_data, document_saving_path)
+        doc_sim_matrix = question_graph['similarity_matrices'][document_number]
+        doc_edges = question_graph['edges'][document_number]
+        
+        if (doc_sim_matrix == FAILED_FLAG) | (doc_edges == FAILED_FLAG):
+            continue
+        else:
+            base_document_info = {
+                'question_id': question_id,
+                'document_id': document_id,
+                'label': question_graph['labels'][document_number],
+                'score': question_graph['scores'][document_number],
+                'origin': question_graph['origins'][document_number]
+            }
+            documents_metadata.append(
+                base_document_info
+            )
+
+            document_data = copy.deepcopy(base_document_info)
+            document_data.update({
+                'similarity_matrix': doc_sim_matrix,
+                'edges': doc_edges,
+            })
+            document_saving_path = f'{saving_path}/{question_id}_{document_id}.json'
+            save_json(document_data, document_saving_path)
 
     return documents_metadata
 
