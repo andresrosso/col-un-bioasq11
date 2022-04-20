@@ -9,39 +9,58 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 from nltk.tokenize import sent_tokenize, word_tokenize
+import en_core_sci_sm
 
-def clean(text):
-    pattern = r'[0-9]'
-    stripped = text.strip().lower() #del
-    new_string = re.sub(pattern, '', stripped) #delete numbers
-    cleaned_text = re.sub(r'[^a-z0-9\s]','',new_string)
-    return cleaned_text
+from joblib import Parallel, delayed
+
+from src.cemb_bm25.text_cleanup import standardize_text, clean_sentence
+
+ENTITY_EXTRACTOR = en_core_sci_sm.load()
 
 def tokenize(text):
     data = []
-    for sentence in sent_tokenize(text):
+    standardized_text = standardize_text(text)
+    for sentence in sent_tokenize(standardized_text):
+        cleaned_sentence = clean_sentence(sentence)
         temp = []
-        for word in word_tokenize(sentence):
+        for word in word_tokenize(cleaned_sentence):
             temp.append(word)
         data.extend(temp) #data= cada frase tokenizada... en total tenemos 2593 queries
     return(data)
 
-def subclean_doc(document_attribute, use_tokens):
-    if use_tokens:
-        return tokenize(clean(document_attribute))
-    return clean(document_attribute)
+def extract_entities(text):
+    data = []
+    standardized_text = standardize_text(text)
+    for sentence in sent_tokenize(standardized_text):
+        cleaned_sentence = clean_sentence(sentence)
+        raw_entities = ENTITY_EXTRACTOR(cleaned_sentence)
+        sentence_entities = list(
+            itertools.chain.from_iterable([
+                entity.text.split() for entity in raw_entities
+            ])
+        )
+    return sentence_entities
 
-def tokenize_document(document_info, use_tokens):
+def tokenize_document(document_info):
     return {
         'id': document_info['id'],
-        'title': subclean_doc(document_info['title'], use_tokens),
-        'abstract': subclean_doc(document_info['abstract'], use_tokens),
+        'title': tokenize(document_info['title']),
+        'abstract': tokenize(document_info['abstract']),
+        'score': document_info['score']
+    }
+
+def extract_document_entities(document_info):
+    return {
+        'id': document_info['id'],
+        'entities': (
+            extract_entities(document_info['title']) +
+            extract_entities(document_info['abstract'])
+        ),
         'score': document_info['score']
     }
 
 def extract_unique_doc_info(questions):
     unique_docs = {}
-    unique_docs_no_token = {}
     for question in tqdm(questions, desc='Extracting unique doc info'):
         documents = question['documents']
         for document in documents:
@@ -53,24 +72,55 @@ def extract_unique_doc_info(questions):
             ):
                 continue
             else:
-                unique_docs[document_id] = tokenize_document(
-                    document,
-                    True
-                )
-                unique_docs_no_token[document_id] = tokenize_document(
-                    document,
-                    False
-                )
-                
-                
-    return unique_docs, unique_docs_no_token
+                unique_docs[document_id] = document
+    return unique_docs
 
-def select_questions_useful_documents(questions, unique_docs, use_tokens):
+def docs_to_tokens(unique_docs, n_jobs=5):
+    doc_ids = list(unique_docs.keys())
+    doc_tokens = Parallel(n_jobs=n_jobs)(
+        delayed(tokenize_document)(doc_info)
+        for doc_info in unique_docs.values()
+    )
+    
+    docs_tokens = dict(zip(doc_ids, doc_tokens))
+
+    return docs_tokens
+
+def docs_to_entities(unique_docs, n_jobs=5):
+    doc_ids = list(unique_docs.keys())
+    doc_entities = Parallel(n_jobs=n_jobs)(
+        delayed(extract_document_entities)(doc_info)
+        for doc_info in unique_docs.values()
+    )
+
+    docs_entities = dict(zip(doc_ids, doc_entities))
+
+    return docs_entities
+
+def extract_unique_doc_entity_info(questions):
+    unique_docs = {}
+    for question in tqdm(questions, desc='Extracting unique doc entities'):
+        documents = question['documents']
+        for document in documents:
+            document_id = document['id']
+            if (
+                unique_docs.get(document_id, False) or
+                (document['abstract'] == '') or
+                (document['abstract'] is None)
+            ):
+                continue
+            else:
+                unique_docs[document_id] = extract_document_entities(
+                    document
+                )
+    return unique_docs
+
+def select_questions_useful_documents(questions, unique_docs):
     copy_questions = copy.deepcopy(questions)
     valid_docs = set(unique_docs.keys())
     question_solving_doc_ids = set()
     for question in tqdm(copy_questions, desc='Selecting useful documents'):
-        question['body'] = subclean_doc(question['body'], use_tokens)
+        question['body'] = tokenize(question['body'])
         new_documents = []
         new_document_ids = set()
         for document in question['documents']:
@@ -138,8 +188,6 @@ def calculate_centroids(text_tokens, model, vocab):
         cent = np.mean(num,axis=0)
         centroids[sent_id] = cent
     return(centroids)
-
-
 
 def calculate_cosine_similarity(question_centroid, document_centroid):
     projection = np.dot(question_centroid, document_centroid)
@@ -232,6 +280,8 @@ def update_question_scores_from_raw_data(raw_questions, question_scores):
                 document['score'] = question_scores[question['id']][document['id']]
                 if 'documents_origin' in question.keys():
                     document['origin'] = question['documents_origin'][document['id']]
+                else:
+                    document['origin'] = 'queried'
                 useful_documents.append(
                     document
                 )
