@@ -139,9 +139,7 @@ class GraphDataset:
         if split_type is not None:
             df_data = self.splits[split_type].copy(deep=True)
         else:
-            df_data = pd.concat([
-                df for df in self.splits.values()
-            ])
+            df_data = self.metadata.copy(deep=True)
 
         if split_type == 'train':
             df_data = df_data.sample(
@@ -158,8 +156,9 @@ class GraphDataset:
                 (split_type == 'train') and
                 (len(batch_paths) == self.batch_size)
             )
-            predict_all = split_type is not None
-            if right_train_shape or predict_all:
+            predict_all = split_type is None
+            is_train_val_split = split_type in ['val', 'test']
+            if right_train_shape or predict_all or is_train_val_split:
                 batch_graphs = self.__get_batch_graphs(
                     batch_paths
                 )
