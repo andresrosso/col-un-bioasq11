@@ -54,9 +54,9 @@ class GraphDataset:
             (document['origin'] == 'original') or
             (document['score'] >= score_threshold)
         ):
-            return [1.0, 0.0]
+            return 1.0
 
-        return [0.0, 1.0]
+        return 0.0
         
     def __relabel(self):
         self.metadata['label'] = self.metadata.apply(
@@ -118,7 +118,7 @@ class GraphDataset:
             raw_graph, self.score_threshold
         )
         x = torch.tensor(raw_graph['similarity_matrix'], dtype = torch.float)
-        y = torch.tensor(raw_graph['label'], dtype = torch.float)
+        y = torch.tensor(raw_graph['label'], dtype = torch.long)
         edge_index = torch.tensor(raw_graph['edges'],dtype = torch.long)
         graph = Data(x=x, edge_index=edge_index, y=y)
         return graph
@@ -134,10 +134,15 @@ class GraphDataset:
         
         return Batch.from_data_list(graphs)
 
-    def get_batch(self, split_type):
+    def get_batch(self, split_type=None):
         
-        df_data = self.splits[split_type].copy(deep=True)
-        
+        if split_type is not None:
+            df_data = self.splits[split_type].copy(deep=True)
+        else:
+            df_data = pd.concat([
+                df for df in self.splits.values()
+            ])
+
         if split_type == 'train':
             df_data = df_data.sample(
                 frac=1,
@@ -146,10 +151,17 @@ class GraphDataset:
         
         n_splits = np.ceil(len(df_data)/self.batch_size)
         batches = np.array_split(df_data, n_splits)
+
         for batch in batches:
             batch_paths = batch['path'].tolist()
-            batch_graphs = self.__get_batch_graphs(
-                batch_paths
+            right_train_shape = (
+                (split_type == 'train') and
+                (len(batch_paths) == self.batch_size)
             )
+            predict_all = split_type is not None
+            if right_train_shape or predict_all:
+                batch_graphs = self.__get_batch_graphs(
+                    batch_paths
+                )
 
-            yield batch_graphs
+                yield batch_graphs
