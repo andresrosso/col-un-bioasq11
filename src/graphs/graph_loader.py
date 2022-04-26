@@ -10,6 +10,7 @@ from src.elastic_search_utils.elastic_utils import load_json
 
 class GraphDataset:
     METADATA_FILE = 'metadata.parquet'
+    DEBUG_SIZE = 128
     
     def __init__(
         self,
@@ -18,7 +19,8 @@ class GraphDataset:
         val_percentage,
         test_percentage,
         random_state,
-        score_threshold=None
+        score_threshold=None,
+        debug=False
     ):
         self.dataset_path = dataset_path
         self.batch_size = batch_size
@@ -34,6 +36,13 @@ class GraphDataset:
         self.metadata = pd.read_parquet(
             f'{dataset_path}/{self.METADATA_FILE}'
         )
+        
+        if debug:
+            self.metadata = self.metadata[
+                self.metadata['question_id'].isin(
+                    self.metadata['question_id'].unique()[:self.DEBUG_SIZE]
+                )
+            ]
         self.__add_document_path()
         
         if score_threshold is not None:
