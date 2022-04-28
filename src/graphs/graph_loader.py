@@ -19,7 +19,7 @@ class GraphDataset:
         val_percentage,
         test_percentage,
         random_state,
-        score_threshold=None,
+        score_threshold=None,  # 1.0 or less binary filter, else filter by ranking
         debug=False
     ):
         self.dataset_path = dataset_path
@@ -46,7 +46,14 @@ class GraphDataset:
         self.__add_document_path()
         
         if score_threshold is not None:
-            self.__relabel()
+            if self.score_threshold <= 1.0:
+                self.__relabel()
+            else:
+                self.__relabel_positional()
+                self._doc_label = dict(zip(
+                    self.metadata['document_id'].tolist(),
+                    self.metadata['label'].tolist()
+                ))
         
         self.splits = self.__train_val_test_split()
         
@@ -66,6 +73,9 @@ class GraphDataset:
             return 1.0
 
         return 0.0
+    
+    def __relabel_document_positional(self, document):
+        return self._doc_label[document['document_id']]
         
     def __relabel(self):
         self.metadata['label'] = self.metadata.apply(
@@ -73,6 +83,22 @@ class GraphDataset:
                 document, self.score_threshold
             ),
             axis=1
+        )
+        
+    def __relabel_positional(self):
+        self.metadata.sort_values('score', ascending=False, inplace=True)
+        self.metadata['score_pos'] = \
+            self.metadata.groupby('question_id').cumcount() + 1
+        
+        is_relevant = (
+            (self.metadata['score_pos'] <= self.score_threshold) |
+            (self.metadata['origin'] == 'original')
+        )
+        
+        self.metadata['label'] = np.where(
+            is_relevant,
+            1.0,
+            0.0
         )
         
     def __train_val_test_split(
@@ -123,9 +149,14 @@ class GraphDataset:
     
     def __get_example_graph(self, path):
         raw_graph = load_json(path)
-        raw_graph['label'] = self.__relabel_document(
-            raw_graph, self.score_threshold
-        )
+        if self.score_threshold <= 1.0:
+            raw_graph['label'] = self.__relabel_document(
+                raw_graph, self.score_threshold
+            )
+        else:
+            raw_graph['label'] = self.__relabel_document_positional(
+                raw_graph
+            )
         x = torch.tensor(raw_graph['similarity_matrix'], dtype = torch.float)
         y = torch.tensor(raw_graph['label'], dtype = torch.long)
         edge_index = torch.tensor(raw_graph['edges'],dtype = torch.long)
@@ -173,3 +204,20 @@ class GraphDataset:
                 )
 
                 yield batch_graphs
+
+    def get_batch_size(self, split_type=None):
+        
+        if split_type is not None:
+            df_data = self.splits[split_type].copy(deep=True)
+        else:
+            df_data = self.metadata.copy(deep=True)
+
+        if split_type == 'train':
+            df_data = df_data.sample(
+                frac=1,
+                random_state=self.random_state
+            )
+        
+        n_splits = np.ceil(len(df_data)/self.batch_size)
+        batches = np.array_split(df_data, n_splits)
+        return len(batches)
