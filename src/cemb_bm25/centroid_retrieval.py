@@ -265,6 +265,8 @@ def update_question_scores(raw_questions, question_scores):
             document['score'] = question_scores[question['id']][document['id']]
             if 'documents_origin' in question.keys():
                 document['origin'] = question['documents_origin'][document['id']]
+            else:
+                document['origin'] = 'queried'
         question['documents'] = sorted(
             question['documents'],
             key= lambda x: x['score'] + 
