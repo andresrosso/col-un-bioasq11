@@ -13,9 +13,9 @@ import pubmed_parser as pp
 from pprint import pprint
 import logging
 
-index = 'pubmed2022'
+index = 'pubmed2023-old'
 es = Elasticsearch('http://localhost:9200')
-path = '/datasets/pubmed2022/'
+path = '/opt/bioasq/resources/pubmed_baseline_2023/'
 
 dirs = os.listdir( path )
 read_dirs = [f"{path}{dirx}" for dirx in dirs]

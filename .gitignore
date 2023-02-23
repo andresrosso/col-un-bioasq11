@@ -130,3 +130,4 @@ dmypy.json
 
 #logs
 .log
+notebooks/haystack/result.csv
