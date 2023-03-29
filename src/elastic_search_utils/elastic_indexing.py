@@ -22,7 +22,7 @@ read_dirs = [f"{path}{dirx}" for dirx in dirs]
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description='Parser for Bavaria training MLOps'
+        description='Parser for BIOASQ'
     )
     parser.add_argument(
         '--prefix',

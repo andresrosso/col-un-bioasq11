@@ -10,15 +10,20 @@ class PATH :
     home = path_home[0:(path_home.find(app)+len(app))]
     eval_home = path_home[0:path_home.find(app)] + eval_app
     
-class ES :      # for database globals
-    host = 'abcd'
-    url = 'xyz'
+class ES :  # Elastic Seach constants
+    ip = 'localhost'
+    port = '9200'
+    server = f'http://{ip}:{port}'
+    index = 'pubmed2023-old'
+    search_fields = ['title', 'abstract', 'mesh_terms']
+    num_docs = 100
 
 class BIOASQ :
     debug = False
     output = 'stdio'
     index = 'pubmed2023'
     doc_relative_url = 'http://www.ncbi.nlm.nih.gov/pubmed/'
+    
     
 sys.path.append(PATH.home+'/src')
 sys.path.append(PATH.home+'/src/common/legacy/')

@@ -2,6 +2,7 @@ import json
 import itertools
 import logging
 from tqdm import tqdm
+
 from src.elastic_search_utils.elastic_constants import (
     ElasticServer,
     TrainingSetPath,
@@ -74,6 +75,8 @@ def ask_single_doc_id(doc_id='1', fields=SearchFields.DEFAULT.value, es_client=E
             }
         }
     return formatted_answer
+
+search_doc_by_id = ask_single_doc_id
 
 def ask_all_doc_id(doc_ids=['1'], fields=SearchFields.DEFAULT.value, es_client=ElasticServer.DEFAULT.value, index=SearchIndex.COMPLETE.value):
     doc_answers = {}
@@ -152,6 +155,7 @@ def ask_single_question(question='', fields=SearchFields.DEFAULT.value, size=10,
         "query": {
             "multi_match": {
                 "query": str_question,
+                "type":       "best_fields",
                 "fields": fields
             }
         }
@@ -164,6 +168,9 @@ def ask_single_question(question='', fields=SearchFields.DEFAULT.value, size=10,
     
     )
     return response
+
+#create method alias 
+search_doc_by_query = ask_single_question
 
 def answers_to_id_metric(answers):
     answers_hits = answers['hits']['hits']
@@ -238,3 +245,6 @@ def ask_several_questions(questions=[], fields=SearchFields.DEFAULT.value, size=
         )
         metric_answers.append(question_metrics)
     return metric_answers
+
+# Alias for multiple query search
+search_docs_by_query_set = ask_several_questions
