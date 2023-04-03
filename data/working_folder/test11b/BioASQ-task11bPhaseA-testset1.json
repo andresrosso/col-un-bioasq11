@@ -1,0 +1,379 @@
+{
+  "questions": [
+    {
+      "id": "6402c910201352f04a00000c",
+      "type": "yesno",
+      "body": "Can losartan reduce brain atrophy in Alzheimer\u0027s disease?"
+    },
+    {
+      "id": "640f857d201352f04a00002b",
+      "type": "factoid",
+      "body": "What is CHARMS with respect to medical review of predictive modeling?"
+    },
+    {
+      "id": "6410eb95201352f04a00002e",
+      "type": "list",
+      "body": "Which splicing factors have been associated with alternative splicing in PLN R14del hearts?"
+    },
+    {
+      "id": "64162fb0690f196b5100001a",
+      "type": "list",
+      "body": "What are the most common mutation types in Duchenne muscular Dystrophy?"
+    },
+    {
+      "id": "63eef3ebf36125a42600000a",
+      "type": "factoid",
+      "body": "What is the target of Litifilimab?"
+    },
+    {
+      "id": "64136fbf201352f04a00003d",
+      "type": "factoid",
+      "body": "What is AUROC in context of predictive modeling?"
+    },
+    {
+      "id": "63fa13da201352f04a000001",
+      "type": "yesno",
+      "body": "Is PRP-40 regulation of microexons a conserved phenomenon?"
+    },
+    {
+      "id": "64178e15690f196b51000020",
+      "type": "yesno",
+      "body": "Is casimersen effective for the treatment of Duchenne muscular dystrophy?"
+    },
+    {
+      "id": "63f02ceaf36125a426000015",
+      "type": "summary",
+      "body": "Which are the targets of Tirzepatide?"
+    },
+    {
+      "id": "640e2616201352f04a00002a",
+      "type": "yesno",
+      "body": "Is medical hydrology the same as Spa therapy?"
+    },
+    {
+      "id": "6410fa66201352f04a000034",
+      "type": "summary",
+      "body": "How does CYP1A2 relate to coffee consumption and apetite?"
+    },
+    {
+      "id": "64178e73690f196b51000023",
+      "type": "yesno",
+      "body": "Is eteplirsen effective for the treatment of Duchenne muscular dystrophy?"
+    },
+    {
+      "id": "63f03939f36125a42600001b",
+      "type": "summary",
+      "body": "What is the use of darolutamide?"
+    },
+    {
+      "id": "64136664201352f04a00003b",
+      "type": "list",
+      "body": "What are the main clinical features of small-fiber neuropathy (SFN)?"
+    },
+    {
+      "id": "6415c53e690f196b51000012",
+      "type": "factoid",
+      "body": "When was Keytruda approved by the FDA for the treatment of metastatic non-small cell lung cancer?"
+    },
+    {
+      "id": "6417949d690f196b51000035",
+      "type": "list",
+      "body": "Which gene therapies are under investigation for Duchenne muscular dystrophy?"
+    },
+    {
+      "id": "63f02a82f36125a426000013",
+      "type": "yesno",
+      "body": "Does CIDEB mutation protect from liver disease?"
+    },
+    {
+      "id": "64089b21201352f04a000021",
+      "type": "summary",
+      "body": "Can you summarize the function of CDK9?"
+    },
+    {
+      "id": "6410eead201352f04a000030",
+      "type": "summary",
+      "body": "How does RBM24 control QT interval?"
+    },
+    {
+      "id": "64105502201352f04a00002d",
+      "type": "yesno",
+      "body": "Is North Star Ambulatory Assessment score a reliable clinical outcome for disease progression assessment in Duchenne Muscular Dystrophy?"
+    },
+    {
+      "id": "63f032caf36125a42600001a",
+      "type": "summary",
+      "body": "What is the mechanism of action of rilzabrutinib?"
+    },
+    {
+      "id": "641368ee201352f04a00003c",
+      "type": "list",
+      "body": "What are the  types/categories of adult diffuse gliomas."
+    },
+    {
+      "id": "6415ca99690f196b51000019",
+      "type": "yesno",
+      "body": "Have chimeric antigen receptor (CAR)-T cell therapies been approved for the treatment of B cell malignancies?"
+    },
+    {
+      "id": "64178e4b690f196b51000022",
+      "type": "yesno",
+      "body": "Is golodirsen effective for the treatment of Duchenne muscular dystrophy?"
+    },
+    {
+      "id": "63f043e4f36125a426000023",
+      "type": "yesno",
+      "body": "Is Baricitinib effective for Alopecia Areata?"
+    },
+    {
+      "id": "64137616201352f04a000041",
+      "type": "yesno",
+      "body": "Anemia is not associated with chronic kidney failure"
+    },
+    {
+      "id": "6415bc8d690f196b5100000f",
+      "type": "factoid",
+      "body": "What is the estimated reduction in time when using online genetic counseling?"
+    },
+    {
+      "id": "64163660690f196b5100001d",
+      "type": "yesno",
+      "body": "Is deflazacort more efficient than prednisone/prednisolone for the treatment of Duchenne muscular dystrophy?"
+    },
+    {
+      "id": "6402bc2d201352f04a000005",
+      "type": "list",
+      "body": "What are the targets of Mosunetuzumab?"
+    },
+    {
+      "id": "64144200201352f04a000043",
+      "type": "yesno",
+      "body": "Is anaphylaxis a results of mast cell activation?"
+    },
+    {
+      "id": "6415c6b6690f196b51000015",
+      "type": "list",
+      "body": "On which two clinical trials was the approval of Keytruda based?"
+    },
+    {
+      "id": "64178e34690f196b51000021",
+      "type": "yesno",
+      "body": "Is viltolarsen effective for the treatment of Duchenne muscular dystrophy?"
+    },
+    {
+      "id": "640410d1201352f04a000012",
+      "type": "summary",
+      "body": "What is Wilkie\u0027s syndrome?"
+    },
+    {
+      "id": "641461bb201352f04a000046",
+      "type": "summary",
+      "body": "What is a PROTAC?"
+    },
+    {
+      "id": "6410f839201352f04a000032",
+      "type": "yesno",
+      "body": "Can the concept of digital twins be applied in Precision Nutrition?"
+    },
+    {
+      "id": "63eef6edf36125a42600000d",
+      "type": "summary",
+      "body": "What is the mechanism of action of Teclistamab?"
+    },
+    {
+      "id": "640c8309201352f04a000024",
+      "type": "list",
+      "body": "The diagnosis of cholestasis is based on the elevations seen in what liver function tests?"
+    },
+    {
+      "id": "6415c599690f196b51000013",
+      "type": "factoid",
+      "body": "Which company produces Keytruda?"
+    },
+    {
+      "id": "64040edf201352f04a000011",
+      "type": "yesno",
+      "body": "Based on clinical trial data, can pioglitazone delay cognitive impairment for people at risk for Alzheimer\u0027s disease?"
+    },
+    {
+      "id": "6414638c201352f04a000047",
+      "type": "factoid",
+      "body": "Cereblon (CRBN)  has been identified as the target for what type of drug?"
+    },
+    {
+      "id": "63f9cdb033942b094c000012",
+      "type": "yesno",
+      "body": "Does silencing of SRRM4 promote microexon inclusion?"
+    },
+    {
+      "id": "63f03a20f36125a42600001c",
+      "type": "list",
+      "body": "Which drugs are included in the AZD7442?"
+    },
+    {
+      "id": "640ddd9d201352f04a000028",
+      "type": "list",
+      "body": "What were the first 2 PD-1 inhibitors approved by the FDA in 2014?"
+    },
+    {
+      "id": "6414c4cf690f196b51000006",
+      "type": "factoid",
+      "body": "What is the difference between dermatillomania and skin picking disorder?"
+    },
+    {
+      "id": "63eefa3bf36125a426000012",
+      "type": "factoid",
+      "body": "What causes Japanese Spotted Fever?"
+    },
+    {
+      "id": "640dde93201352f04a000029",
+      "type": "summary",
+      "body": "What is the difference between PD-1 and PD-L1?"
+    },
+    {
+      "id": "6410f8b2201352f04a000033",
+      "type": "summary",
+      "body": "What would be the benefits of using a virtual digital twin in nutrition?"
+    },
+    {
+      "id": "64040af9201352f04a00000d",
+      "type": "yesno",
+      "body": "Is levosimendan effective for amyotrophic lateral sclerosis?"
+    },
+    {
+      "id": "6414c0f7690f196b51000001",
+      "type": "list",
+      "body": "What are the clinical symptoms of an ornithine transcarbamylase deficiency?"
+    },
+    {
+      "id": "63fa197c201352f04a000003",
+      "type": "summary",
+      "body": "How does SRSF11 contribute to metastasis potential of colorectal cancer?"
+    },
+    {
+      "id": "63eef60ef36125a42600000c",
+      "type": "factoid",
+      "body": "Olokizumab is tested for which disease?"
+    },
+    {
+      "id": "6413730e201352f04a00003f",
+      "type": "summary",
+      "body": "Please summarize the function of Trophinin-associated protein (TROAP)"
+    },
+    {
+      "id": "6410ed73201352f04a00002f",
+      "type": "summary",
+      "body": "How does SRSF11 promote metastasis of colon cancer?"
+    },
+    {
+      "id": "63f03fc8f36125a426000021",
+      "type": "factoid",
+      "body": "What disease can be treated with Lenacapavir?"
+    },
+    {
+      "id": "641365f6201352f04a00003a",
+      "type": "yesno",
+      "body": "Is Iron deficiency anemia a common complication of chronic kidney disease?"
+    },
+    {
+      "id": "6410ef9b201352f04a000031",
+      "type": "yesno",
+      "body": "Can modulation of KCNQ1 splicing prevent arrhythmias?"
+    },
+    {
+      "id": "63f57f7f33942b094c000006",
+      "type": "summary",
+      "body": "What is Catamenial pneumothorax?"
+    },
+    {
+      "id": "64144419201352f04a000045",
+      "type": "summary",
+      "body": "Please summarize haptenization."
+    },
+    {
+      "id": "6414c124690f196b51000002",
+      "type": "yesno",
+      "body": "Is trichotillomania encountered with equali frequency in males and females?"
+    },
+    {
+      "id": "64041701201352f04a000017",
+      "type": "list",
+      "body": "What is the triad of the Eagle-Barrett Syndrome?"
+    },
+    {
+      "id": "640c85e9201352f04a000026",
+      "type": "factoid",
+      "body": "What cells proliferate in Mantle Cell Lymphoma"
+    },
+    {
+      "id": "6415bb3c690f196b5100000e",
+      "type": "factoid",
+      "body": "What is the estimated cost reduction when using telegenetics?"
+    },
+    {
+      "id": "63f03ae6f36125a42600001d",
+      "type": "factoid",
+      "body": "What is the target of BI 1015550?"
+    },
+    {
+      "id": "64089be7201352f04a000022",
+      "type": "summary",
+      "body": "Please summarize the difference between REMS and RMPs"
+    },
+    {
+      "id": "63f9cd2f33942b094c000011",
+      "type": "yesno",
+      "body": "Does microexon alternative splicing of small GTPase regulators have implication in central nervous system diseases?"
+    },
+    {
+      "id": "63eeeaaaf36125a426000004",
+      "type": "factoid",
+      "body": "Beremagene Geperpavec is tested for which disease?"
+    },
+    {
+      "id": "64138ce8201352f04a000042",
+      "type": "factoid",
+      "body": "Hairpatches is a single gene mutation associated with what disease?"
+    },
+    {
+      "id": "63f9cd0b33942b094c000010",
+      "type": "factoid",
+      "body": "What is the alternative microexon splicing by RBFOX2 and PTBP1 associated with?"
+    },
+    {
+      "id": "63f56f7533942b094c000002",
+      "type": "factoid",
+      "body": "Which gene is implicated in Canavan disease?"
+    },
+    {
+      "id": "6411b4a8201352f04a000035",
+      "type": "yesno",
+      "body": "Is prosopagnosia also known as lack of auditory recognition?"
+    },
+    {
+      "id": "6415babe690f196b5100000d",
+      "type": "summary",
+      "body": "What is telegenetics?"
+    },
+    {
+      "id": "63f04546f36125a426000024",
+      "type": "summary",
+      "body": "What is the mechanism of action of Mitapivat?"
+    },
+    {
+      "id": "641357bc201352f04a000039",
+      "type": "yesno",
+      "body": "Do cells undergoing necroptosis show disruption of their cell membranes?"
+    },
+    {
+      "id": "6414c3f3690f196b51000005",
+      "type": "summary",
+      "body": "What is the definition of dermatillomania?"
+    },
+    {
+      "id": "63eeeb70f36125a426000005",
+      "type": "factoid",
+      "body": "What disease can be treated with Glofitamab?"
+    }
+  ]
+}
