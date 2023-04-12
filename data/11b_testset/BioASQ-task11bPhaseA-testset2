@@ -1,0 +1,379 @@
+{
+  "questions": [
+    {
+      "id": "63f03006f36125a426000018",
+      "type": "summary",
+      "body": "What were the results of the DESTINY-Breast04 Trial?"
+    },
+    {
+      "id": "641ad941690f196b5100003d",
+      "type": "yesno",
+      "body": "Are LOQ and LOD the same?"
+    },
+    {
+      "id": "642a029d57b1c7a315000011",
+      "type": "summary",
+      "body": "Histone acetyltransferases (HATs) transfer acetyl groups from acetyl CoA to lysine residues on histones. What is the purpose of this transfer?"
+    },
+    {
+      "id": "6432fc0457b1c7a31500001f",
+      "type": "factoid",
+      "body": "Which gene is most frequently mutated in hereditary angioedema ?"
+    },
+    {
+      "id": "64178edb690f196b51000025",
+      "type": "summary",
+      "body": "What is casimersen\u0027s mechanism of action?"
+    },
+    {
+      "id": "6402bf2b201352f04a000007",
+      "type": "summary",
+      "body": "What is the mechanism of action of tiragolumab?"
+    },
+    {
+      "id": "641d8fd6690f196b51000041",
+      "type": "list",
+      "body": "What are the serum biomarkers that have been proposed in Neuromyelitis Optica Spectrum Disorders (NMOSD) to monitor disease activity?"
+    },
+    {
+      "id": "6429d5c557b1c7a315000006",
+      "type": "list",
+      "body": "What are the major thrombotic complications in patients with COVID-19?"
+    },
+    {
+      "id": "6433012b57b1c7a315000022",
+      "type": "summary",
+      "body": "What is Cinryze?"
+    },
+    {
+      "id": "64179337690f196b51000034",
+      "type": "yesno",
+      "body": "Do machine learning-based methods outperform statistical methods for survival analysis?"
+    },
+    {
+      "id": "63f03c47f36125a42600001e",
+      "type": "factoid",
+      "body": "ZF2001 is used for which disease?"
+    },
+    {
+      "id": "642c82c557b1c7a315000012",
+      "type": "factoid",
+      "body": "What mammal has the lowest known chromosome number?"
+    },
+    {
+      "id": "6429b41757b1c7a315000004",
+      "type": "list",
+      "body": "When modifying histones with either activating or repressing marks, such as with acetyl and methyl groups, histone acetyltransferases and histone methyltransferases normally modify which amino acids?"
+    },
+    {
+      "id": "643305b257b1c7a315000025",
+      "type": "factoid",
+      "body": "Which company produces Ruconest?"
+    },
+    {
+      "id": "641635fa690f196b5100001c",
+      "type": "factoid",
+      "body": "What is usually the age of diagnosis in Duchenne muscular dystrophy?"
+    },
+    {
+      "id": "6402c868201352f04a00000b",
+      "type": "yesno",
+      "body": "Was erythropoietin effective for optic neuritis in the TONE trial?"
+    },
+    {
+      "id": "6424154d690f196b5100004a",
+      "type": "summary",
+      "body": "What is the R value with respect to hepatoxicity"
+    },
+    {
+      "id": "64299b6a57b1c7a315000001",
+      "type": "yesno",
+      "body": "Is COVID-19 caused by the Omicron variant less severe than infection caused by other variants?"
+    },
+    {
+      "id": "6432ffdf57b1c7a315000021",
+      "type": "summary",
+      "body": "What is hereditary angioedema?"
+    },
+    {
+      "id": "64178ec2690f196b51000024",
+      "type": "summary",
+      "body": "What is viltolarsen\u0027s mechanism of action?"
+    },
+    {
+      "id": "64040bd8201352f04a00000e",
+      "type": "yesno",
+      "body": "Should be used bexarotene for relapsing-remitting multiple sclerosis?"
+    },
+    {
+      "id": "6422e7f0690f196b51000045",
+      "type": "list",
+      "body": "Hepcidin is a key regulator of what processes?"
+    },
+    {
+      "id": "6429ee7457b1c7a31500000b",
+      "type": "yesno",
+      "body": "Can analgesics or antipyretics be taken for side effects following COVID-19 vaccination?"
+    },
+    {
+      "id": "6433050157b1c7a315000024",
+      "type": "factoid",
+      "body": "Which drug was the first recombinant human C1 inhibitor protein (C1INH) for the treatment of acute attacks of hereditary angioedema (HAE)?"
+    },
+    {
+      "id": "6417900b690f196b5100002a",
+      "type": "factoid",
+      "body": "What type of DMD can viltolarsen be used for?"
+    },
+    {
+      "id": "63f57ea133942b094c000005",
+      "type": "list",
+      "body": "What is the triad of the Cat eye syndrome?"
+    },
+    {
+      "id": "64281a47690f196b5100004f",
+      "type": "yesno",
+      "body": "Is OXLUMO (lumasiran) used for the treatment of primary hyperoxaluria?"
+    },
+    {
+      "id": "6429cfb557b1c7a315000005",
+      "type": "yesno",
+      "body": "Should patients using inhaled glucocorticoids for asthma or COPD be advised to stop these medications to prevent COVID-19?"
+    },
+    {
+      "id": "6432f75757b1c7a31500001d",
+      "type": "yesno",
+      "body": "Is Zanubrutinib a first-generation BTK inhibitor approved by US Food and Drug Administration (FDA)?"
+    },
+    {
+      "id": "64178fea690f196b51000028",
+      "type": "factoid",
+      "body": "What types of DMD can eteplirsen be used for?"
+    },
+    {
+      "id": "63eef94ff36125a426000010",
+      "type": "yesno",
+      "body": "Is Cinpanemab effective for Parkinson’s Disease?"
+    },
+    {
+      "id": "6426d131690f196b5100004e",
+      "type": "factoid",
+      "body": "In what organ would you find the Ashwell receptor?"
+    },
+    {
+      "id": "6429e17657b1c7a315000007",
+      "type": "list",
+      "body": "What histone marks are indicative of enhancers in the chromatin landscape of a given cell?"
+    },
+    {
+      "id": "643306cc57b1c7a315000027",
+      "type": "yesno",
+      "body": "Can CRISPR/Cas12a be used for the detection of EGFR mutations in circulating DNA?"
+    },
+    {
+      "id": "64178ffb690f196b51000029",
+      "type": "factoid",
+      "body": "What type of DMD can casimersen be used for?"
+    },
+    {
+      "id": "63eeefc5f36125a426000009",
+      "type": "factoid",
+      "body": "What is targeted by CIS43LS?"
+    },
+    {
+      "id": "6415b422690f196b5100000a",
+      "type": "summary",
+      "body": "What does Cal-light do?"
+    },
+    {
+      "id": "64172bb2690f196b5100001e",
+      "type": "factoid",
+      "body": "To which region of a gene does an RNA polymerase bind to initiate transcription?"
+    },
+    {
+      "id": "63f9ccdc33942b094c00000f",
+      "type": "yesno",
+      "body": "Is PRP-40 involved in microexon splicing?"
+    },
+    {
+      "id": "641790d6690f196b5100002d",
+      "type": "factoid",
+      "body": "At what range of ages usually occurs the loss of independent ambulation in Duchenne muscular dystrophy?"
+    },
+    {
+      "id": "6404199d201352f04a000019",
+      "type": "yesno",
+      "body": "Is ocrelizumab effective for primary progressive multiple sclerosis?"
+    },
+    {
+      "id": "641b7bba690f196b5100003e",
+      "type": "summary",
+      "body": "How is Indocyanine green (ICG) used?"
+    },
+    {
+      "id": "6428da74690f196b51000052",
+      "type": "factoid",
+      "body": "What is the process that generates multiple transcripts from the same gene?"
+    },
+    {
+      "id": "63f9cdcc33942b094c000013",
+      "type": "yesno",
+      "body": "Does silencing of SRRM4 inhibit tumor growth across cancers?"
+    },
+    {
+      "id": "64179aac690f196b51000037",
+      "type": "factoid",
+      "body": "What is the life expectancy for Duchenne muscular dystrophy patients?"
+    },
+    {
+      "id": "64041e97201352f04a00001e",
+      "type": "yesno",
+      "body": "Is daridorexant effective for insomnia?"
+    },
+    {
+      "id": "6422ee03690f196b51000046",
+      "type": "factoid",
+      "body": "What cells produce erythroferrone?"
+    },
+    {
+      "id": "6429f86657b1c7a31500000d",
+      "type": "summary",
+      "body": "What is the role of the Mediator in gene expression?"
+    },
+    {
+      "id": "6415c0df690f196b51000010",
+      "type": "factoid",
+      "body": "What does FBDD stand for?"
+    },
+    {
+      "id": "64041dae201352f04a00001d",
+      "type": "yesno",
+      "body": "Is deucravacitinib effective for psoriasis?"
+    },
+    {
+      "id": "6415b6eb690f196b5100000b",
+      "type": "list",
+      "body": "What processes do orexin/hypocretin neurons regulate?"
+    },
+    {
+      "id": "6428da47690f196b51000051",
+      "type": "yesno",
+      "body": "Can the epigenetic status of introns affect gene expression?"
+    },
+    {
+      "id": "6415c5d4690f196b51000014",
+      "type": "list",
+      "body": "What was Keytruda originally approved for by the FDA?"
+    },
+    {
+      "id": "63f5713733942b094c000003",
+      "type": "summary",
+      "body": "What are clinical features of the Achard-Thiers syndrome?"
+    },
+    {
+      "id": "642d4c9b57b1c7a315000013",
+      "type": "yesno",
+      "body": "Are Luminopsins a fusion proteins of luminol and Rhodopsin ?"
+    },
+    {
+      "id": "6429fe4e57b1c7a31500000f",
+      "type": "summary",
+      "body": "What are coactivators?"
+    },
+    {
+      "id": "6412331b201352f04a000038",
+      "type": "factoid",
+      "body": "What are PROTACs?"
+    },
+    {
+      "id": "62008022c9dfcb9c0900001b",
+      "type": "list",
+      "body": "Which variables are included in the ALBI grade?"
+    },
+    {
+      "id": "64240f33690f196b51000049",
+      "type": "list",
+      "body": "What drugs are used to treat FIP, Feline Infectious Peritonitis in cats?"
+    },
+    {
+      "id": "6428da98690f196b51000053",
+      "type": "yesno",
+      "body": "Is there a way to distinguish COVID-19 clinically from other respiratory illnesses, such as influenza?"
+    },
+    {
+      "id": "6415c8f1690f196b51000017",
+      "type": "factoid",
+      "body": "Which form of cancer have paclitaxel, docetaxel, doxorubicin, and epirubicin been approved for?"
+    },
+    {
+      "id": "63eeec79f36125a426000006",
+      "type": "factoid",
+      "body": "Talquetamab was developed for treatment of which disease?"
+    },
+    {
+      "id": "642321a5690f196b51000047",
+      "type": "summary",
+      "body": "Please summarize Feline Spongiform Encephalopathy(FSE"
+    },
+    {
+      "id": "6428d7da690f196b51000050",
+      "type": "yesno",
+      "body": "Can untranslated regions (UTRs) regulate gene expression?"
+    },
+    {
+      "id": "63f9cbb433942b094c00000c",
+      "type": "yesno",
+      "body": "Is alternative splicing associated with heart disease?"
+    },
+    {
+      "id": "61fa941ec9dfcb9c09000005",
+      "type": "yesno",
+      "body": "Should Intepirdine be used for Alzheimer\u0027s disease?"
+    },
+    {
+      "id": "6422e2f1690f196b51000043",
+      "type": "factoid",
+      "body": "What human cells are usually targeted with a Gal-Nac conjugated siRNA or ASO"
+    },
+    {
+      "id": "64299fa957b1c7a315000002",
+      "type": "summary",
+      "body": "What is rebound COVID-19?"
+    },
+    {
+      "id": "6432fb1957b1c7a31500001e",
+      "type": "list",
+      "body": "What clinical applications is Zanubrutinib approved for in the United States?"
+    },
+    {
+      "id": "61f7cb37882a024a10000029",
+      "type": "yesno",
+      "body": "Is rilonacept effective for pericarditis?"
+    },
+    {
+      "id": "6413712a201352f04a00003e",
+      "type": "list",
+      "body": "The 1p19q co-deletion is associated with what types of tumors?"
+    },
+    {
+      "id": "6429ad3857b1c7a315000003",
+      "type": "factoid",
+      "body": "The X-inactive specific transcript (Xist) gene is responsible for mediating the X-chromosome inactivation in females, where one X-chromosome is silenced and transcriptionally inactivated. What does Xist encode?"
+    },
+    {
+      "id": "63f92fd033942b094c00000b",
+      "type": "summary",
+      "body": "What are microexons?"
+    },
+    {
+      "id": "64041f38201352f04a00001f",
+      "type": "yesno",
+      "body": "Is tebentafusp effective for uveal melanoma?"
+    },
+    {
+      "id": "6426bb49690f196b5100004d",
+      "type": "summary",
+      "body": "What is the Fenton reaction"
+    }
+  ]
+}
