@@ -155,7 +155,7 @@ def ask_single_question(question='', fields=SearchFields.DEFAULT.value, size=10,
         "query": {
             "multi_match": {
                 "query": str_question,
-                "type":       "best_fields",
+                "type":  "best_fields",
                 "fields": fields
             }
         }

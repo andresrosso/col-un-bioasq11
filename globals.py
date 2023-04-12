@@ -27,6 +27,7 @@ class BIOASQ :
     
 sys.path.append(PATH.home+'/src')
 sys.path.append(PATH.home+'/src/common/legacy/')
+sys.path.append(PATH.home+'/src/common/')
 # Add Evaluation Project to path
 sys.path.append(PATH.eval_home+'/')
 
