@@ -20798,3 +20798,103 @@
 {"_id": "6220cf383a8413c653000069", "text": "Summarize the function of DEAH helicase DHX36 and its role in G-quadruplex-dependent processes.", "metadata": {"dataset": "training11b.json"}}
 {"_id": "5fd3c4f4a43ad31278000003", "text": "What is the function of the YY1 transcriptional regulator?", "metadata": {"dataset": "training11b.json"}}
 {"_id": "620c01ae3a8413c653000005", "text": "Which CYP genes' expression is decreased at the in vivo level following pomegranate juice consumption?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "62128a913a8413c653000017", "text": "Class-defining mutations in which genes drive FLT3-ITD-mutant AML?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61f5924e882a024a1000000e", "text": "Belzutifan has shown effectiveness for which diseases?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621b54f03a8413c65300003b", "text": "Where are the PUX proteins found?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621ed10f3a8413c653000062", "text": "Are Tregs CD4(+)CD25(+) regulatory T cells a positive regulator of the immune response?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "5fdb4100a43ad31278000015", "text": "Is Mediator present at super enhancers?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "62057b35c9dfcb9c0900002d", "text": "Does atemoya juice inhibit the CYP1A2 enzyme?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "620997e9c9dfcb9c09000042", "text": "What is caused by biallelic variants in SPATA5L1?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "602346eb1cb411341a000090", "text": "A combination of which two drugs was tested in the IMbrave150 trial?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6217dba43a8413c653000029", "text": "Is ALS a heritable disease?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "62211fdf3a8413c653000073", "text": "What is ARNIL?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6211575f3a8413c653000011", "text": "What is the indication of CPX-351?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61f808cd882a024a1000003a", "text": "List signs of patients with biallelic variants in KARS1", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6024a6871cb411341a0000a4", "text": "Which substance use is associated with Brodifacoum poisoning?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621b4a223a8413c65300003a", "text": "What is Alphafold?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621fc8513a8413c653000063", "text": "List diseases that are  repeat expansion disorders (REDs).", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621150333a8413c65300000e", "text": "What is bb21217?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61f81785882a024a1000003f", "text": "Describe the syndrome that is caused by biallelic variants in HPDL", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61f5847b882a024a10000008", "text": "Which receptor is targeted by Spesolimab?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6217dc9d3a8413c65300002d", "text": "Is NfL (neurofilament light chain) a biomarker of neurodegeneration?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621ebec63a8413c65300005d", "text": "Is Epistaxis associated with dental implant placement?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "62058198c9dfcb9c09000030", "text": "What is the effect of grapefruit juice on CYP3A4?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61f81857882a024a10000040", "text": "Which is the major clinical feature observed in FDXR-associated disease?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61f58a1a882a024a10000009", "text": "Is Daprodustat effective for anemia?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6217da133a8413c653000026", "text": "Where is the the protein perforin localized?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621218353a8413c653000013", "text": "Is REGN5458 a single-targeted antibody?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "62190bac3a8413c653000034", "text": "Which disease is associated with X-linked recessive TLR7 deficiency?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6020a7391cb411341a00007e", "text": "Is Benralizumab effective for Chronic Spontaneous Urticaria?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6217dd013a8413c65300002f", "text": "Do the proteins Talin and Amot interact?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6220cbf83a8413c653000067", "text": "Do RNA binding Proteins  that bind to adenine uridine (AU)-rich elements (AREs) in the 5' untranslated region (UTR) of mRNAs (AU-RBPs) regulate the DNA Damage Response?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6211566a3a8413c653000010", "text": "Has CPX-351 been approved by the FDA and the EMA?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "620c2d743a8413c653000008", "text": "What is the role of KAT7 in AML?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6027549d1cb411341a0000ea", "text": "Which drugs are included in the CAPIRI regimen?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621b45943a8413c653000039", "text": "What is the p-crAssphage?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "62211ce03a8413c65300006e", "text": "What is the function of Circular RNA (circRNA)?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6206cfd5c9dfcb9c09000040", "text": "Which one was the first chromone in clinical use?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "605fb19794d57fd879000038", "text": "Which resource is used for visualisation of non-covalent contacts?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "60234dc61cb411341a000094", "text": "Which disease is treated with Emapalumab?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6217dc173a8413c65300002b", "text": "Do we find bacteriophages in the gut?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621fcaf93a8413c653000065", "text": "What is the function of the protein encoded by PUMILIO1?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6211557b3a8413c65300000f", "text": "What is CPX-351", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6028f5851cb411341a0000ff", "text": "What is the prevalence of the inactivating AKT variant p.Pro50Thr in the Finnish population?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6025e3a71cb411341a0000bc", "text": "Which mutations are inhibited by Ripretinib?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "60490e321cb411341a000168", "text": "What is known about the PYHIN proteins?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621ec0313a8413c65300005e", "text": "What class of drugs is commonly associated with Drug-induced interstitial lung disease (DIILD)?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6206b399c9dfcb9c09000039", "text": "What pathological phenotype could potentially concomitant pomegranate juice and rosuvastatin use cause?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621911323a8413c653000038", "text": "Which tool has been developed to discover VNTR-associated deletions?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "601d6fe11cb411341a000033", "text": "Is tirabrutinib effective for lymphoma?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "620155b6c9dfcb9c09000024", "text": "Is covid-19 induced anosmia caused by disruption of nuclear architecture?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61f7d6db882a024a10000037", "text": "What is the mechanism of action of Toripalimab?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622dd1433a8413c6530000a5", "text": "Is taxilin a cancer marker?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6238a32a3a8413c6530000b9", "text": "What are the symptoms of an incidental durotomy (ID).", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622668313a8413c653000087", "text": "Is PCAT6 a microRNA?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6201a4edc9dfcb9c09000028", "text": "Is HDAC1 required for GATA-1 transcriptional activity?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61f7d683882a024a10000036", "text": "Which enzyme is inhibited by Aramchol?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622d17b83a8413c6530000a2", "text": "What is the cause of the Diamond Blackfan Anemia?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6220ce4c3a8413c653000068", "text": "What are the functions of DNA and RNA G-quadruplexes?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6237aa3c3a8413c6530000b5", "text": "What is the effect of epiregulin expression in tumors?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621e5cf53a8413c65300004e", "text": "Name scRNA-seq workflows which harness graph attention networks", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61f7d5a0882a024a10000035", "text": "Which molecule is targeted by Fenebrutinib?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622d04da3a8413c65300009f", "text": "What is Cereblon?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "623648513a8413c6530000ae", "text": "What is Abbreviated Injury Scale (AIS) used to determine?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6237a8343a8413c6530000b2", "text": "Which protein family is epiregulin a member of?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6202fa3cc9dfcb9c0900002c", "text": "Describe Cap Trap RNA-seq", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6200879ac9dfcb9c09000021", "text": "What is the use of the Canadian C-Spine Rule?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622d1ed13a8413c6530000a3", "text": "What is the Daughterless gene?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "623a24d6f0baec9a1b000002", "text": "Is telomestatin, a novel statin drug used to treat high cholesterol?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6237a8a33a8413c6530000b3", "text": "What is amphiregulin a ligand of?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6206743ac9dfcb9c09000037", "text": "Which genetic susceptibility loci are implicated in irritable bowel syndrome (IBS)?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61f7d4da882a024a10000033", "text": "Is there an association between Guillain\u2013Barr\u00e9 syndrome and covid vaccine?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "623dfd2ef0baec9a1b000004", "text": "What is the function of the protein calreticulin?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6235f0e93a8413c6530000ad", "text": "Atlanto-axial rotary instability (Fielding type 1) is common to what diseases?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6237ab873a8413c6530000b6", "text": "What is the effect of epiregulin on leptin secretion?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6202f600c9dfcb9c0900002b", "text": "Which JASPAR release is JASPAR 2022?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61fa904fc9dfcb9c09000004", "text": "Is Erythropoietin effective for neuroprotection of Preterm Infants.", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622deabc3a8413c6530000a6", "text": "What is the SPRTN protein function?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6238a0033a8413c6530000b8", "text": "What part of the body is associated with Cauda equina", "metadata": {"dataset": "training11b.json"}}
+{"_id": "62265b4a3a8413c653000083", "text": "What does RUNX1T1 stand for?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621e5dcf3a8413c65300004f", "text": "Describe InteractiveComplexHeatmap", "metadata": {"dataset": "training11b.json"}}
+{"_id": "620086aac9dfcb9c09000020", "text": "What is the use of Brain Metastasis Velocity (BMV) Model?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622df6663a8413c6530000a7", "text": "What is \"cell competition\"?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "623648723a8413c6530000af", "text": "What is IDD in relation to organ transplantation?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "62265c953a8413c653000084", "text": "Is METTL3 an m6A writer, reader or eraser?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6201a06fc9dfcb9c09000026", "text": "What is the 4D nucleome project?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61f7d017882a024a1000002f", "text": "Which drugs were included in the polypill that was tested in TIPS-3 trial?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622dfb133a8413c6530000a8", "text": "What is the drug  gantenerumab targeting?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6226317a3a8413c653000080", "text": "Is Ameloblastoma (AB) a common benign tumor occurring in the brain?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622664fa3a8413c653000086", "text": "In which aspects of the immune response is m6A methylation implicated?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621e991a3a8413c653000052", "text": "Describe nextNEOpi", "metadata": {"dataset": "training11b.json"}}
+{"_id": "62008577c9dfcb9c0900001f", "text": "What is the use of the ATRIA score?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622b99f73a8413c653000093", "text": "Which protein is targeted by Herceptin?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6235ee453a8413c6530000ac", "text": "What are the main clinical components of the brain death exam?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "6237a94f3a8413c6530000b4", "text": "How does amphiregulin decrease the anti-proliferative effect of cetuximab?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "621e5aa53a8413c65300004d", "text": "Describe RCandy", "metadata": {"dataset": "training11b.json"}}
+{"_id": "61fbca4bc9dfcb9c09000011", "text": "What variables are included in the MuLBSTA score?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622cebe13a8413c65300009d", "text": "Which organisms are the focus of the Wormbase?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622901d23a8413c65300008c", "text": "Is Ameloblastoma (AB) a benign tumor that never metastasizes?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622668b13a8413c653000088", "text": "What does PCAT6 stand for?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "620157bec9dfcb9c09000025", "text": "Is there any role of the 'Greek islands' in olfactory receptor choice?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "62008456c9dfcb9c0900001e", "text": "What is ASTRAL Score?", "metadata": {"dataset": "training11b.json"}}
+{"_id": "622dc4b63a8413c6530000a4", "text": "Is paxillin affected by RANKL?", "metadata": {"dataset": "training11b.json"}}

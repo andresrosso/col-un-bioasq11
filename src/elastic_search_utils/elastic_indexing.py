@@ -13,7 +13,7 @@ import pubmed_parser as pp
 from pprint import pprint
 import logging
 
-index = 'pubmed2023-new'
+index = 'pubmed2023-old'
 es = Elasticsearch('http://localhost:9200')
 path = '/opt/bioasq/resources/pubmed_baseline_2023/'
 
@@ -38,19 +38,18 @@ if __name__ == "__main__":
         read_dir for read_dir in read_dirs
         if PREFIX in read_dir
     ]
+    print(f"INDEX NAME: {index}")
     print(f"KEPT {len(filter_read_dirs)} FILES FROM THE ORIGINAL {len(read_dirs)}")
     print(f"EXAMPLE FILE: {filter_read_dirs[0]}")
 
     # NOT DOING THIS RIGHT NOW
-    """
     try:
-        #es.indices.delete(index=index)
+        es.indices.delete(index=index)
         print('Deleted index, fix')
     except:
         print('Not found index')
     print('CREATING')
     es.indices.create(index=index)
-    """
 
     failures = {}
 
