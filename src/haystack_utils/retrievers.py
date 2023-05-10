@@ -1,6 +1,4 @@
-from haystack.document_stores import BaseKnowledgeGraph
 from haystack.document_stores import KeywordDocumentStore
-from haystack.nodes.retriever.base import BaseGraphRetriever
 from haystack.nodes.retriever.base import BaseRetriever
 from typing import List, Dict, Union, Optional, Any
 from haystack.schema import Document, FilterType

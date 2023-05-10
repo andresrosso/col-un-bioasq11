@@ -13,7 +13,7 @@ import pubmed_parser as pp
 from pprint import pprint
 import logging
 
-index = 'pubmed2023-old'
+index = 'pubmed2023-new'
 es = Elasticsearch('http://localhost:9200')
 path = '/opt/bioasq/resources/pubmed_baseline_2023/'
 
