@@ -14,6 +14,7 @@ class ES :  # Elastic Seach constants
     ip = 'localhost'
     port = '9200'
     server = f'http://{ip}:{port}'
+    main_server =  f'http://35.209.50.55:{port}'
     index = 'pubmed2023-old'
     search_fields = ['title', 'abstract', 'mesh_terms']
     num_docs = 100
